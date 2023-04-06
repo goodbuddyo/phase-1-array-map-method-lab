@@ -1,3 +1,4 @@
+
 const tutorials = [
   'what does the this keyword mean?',
   'What is the Constructor OO pattern?',
@@ -11,6 +12,28 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+// cb fn converts each string element to UC
+function convertStringsToUC(stringItem) {
+  // split each stringItem into an array of strings 
+  // whenever a blank space is encountered
+  const arr = stringItem.split(" ");
+  //loop through each element of the array  and capitalize the first letter.
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  // Join all the elements of the sliced string back into a 
+  // combined string  using a blankspace as a separator 
+  const str2 = arr.join(" ");
+  return str2
 }
+
+// create mew array with converted strings
+const newArray = tutorials.map(convertStringsToUC)
+
+// return new array
+const titleCased = () => {
+  return newArray
+}
+
+titleCased()
+
